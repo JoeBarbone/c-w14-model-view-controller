@@ -1,1 +1,15 @@
-{{!-- html body of home page --}}
+{{#each posts}}
+
+
+<div class="post-box">
+    <div class="post-title">
+        {{ title }} Posted by {{ user.username }} on some bullshit date
+    </div>
+
+    <div class="post-body">
+        {{ post_content }}
+    </div>
+</div>
+
+
+{{/each}}

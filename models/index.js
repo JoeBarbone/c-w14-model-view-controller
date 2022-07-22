@@ -1,24 +1,22 @@
 // import models
 const User = require("./User");
-const Product = require("./Product");
-const Category = require("./Category");
+const Post = require("./Post");
+//const Category = require("./Category");
 
 
 // add associations, examples below
 
-//Products belongsTo category
-Product.belongsTo(Category, {
- foreignKey: "category_id"
+//User have many posts
+User.hasMany(Post, {
+    foreignKey: "user_id"
 });
+//Posts belongsTo user
+Post.belongsTo(User);
 
-//Categories have many Products
-Category.hasMany(Product, {
- foreignKey: "category_id"
-});
+
 
 
 module.exports = {
   User,
-  Product,
-  Category
+  Post
 };
