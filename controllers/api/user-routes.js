@@ -13,6 +13,9 @@ router.get('/', (req, res) => {
     });
 });
 
+
+
+
 router.get('/:id', (req, res) => {
   User.findOne({
     attributes: { exclude: ['password'] },
@@ -53,11 +56,13 @@ router.get('/:id', (req, res) => {
     });
 });
 
+
+
 router.post('/', (req, res) => {
-  // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
+  
   User.create({
     username: req.body.username,
-    email: req.body.email,
+    username: req.body.username,
     password: req.body.password
   })
     .then(dbUserData => {
@@ -75,15 +80,18 @@ router.post('/', (req, res) => {
     });
 });
 
+
+
+
 router.post('/login', (req, res) => {
-  // expects {email: 'lernantino@gmail.com', password: 'password1234'}
+  
   User.findOne({
     where: {
-      email: req.body.email
+      username: req.body.username
     }
   }).then(dbUserData => {
     if (!dbUserData) {
-      res.status(400).json({ message: 'No user with that email address!' });
+      res.status(400).json({ message: 'No user with that username!' });
       return;
     }
 
@@ -104,16 +112,8 @@ router.post('/login', (req, res) => {
   });
 });
 
-router.post('/logout', (req, res) => {
-  if (req.session.loggedIn) {
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  }
-  else {
-    res.status(404).end();
-  }
-});
+
+
 
 router.put('/:id', (req, res) => {
   // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}

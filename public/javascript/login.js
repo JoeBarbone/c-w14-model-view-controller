@@ -6,6 +6,7 @@ async function loginFormHandler(event) {
   
     console.log(`Username: ${username} Password: ${password}`);
 
+    // this is what validates credentials, but figure out and understand how the fetch to the API works
     if (username && password) {
       const response = await fetch('/api/users/login', {
         method: 'post',

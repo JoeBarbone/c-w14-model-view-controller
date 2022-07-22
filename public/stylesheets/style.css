@@ -25,12 +25,12 @@ li {
 }
 
 .container {
-    height: 100vh;
+    xheight: 100vh;
     border: 1px solid black;
 }
 
 .post-box {
-    margin: 20px 0;
+    margin: 20px;
 }
 
 .post-title {
@@ -41,5 +41,34 @@ li {
 
 .post-body {
     border: 1px solid black;
+    padding: 20px;
+}
+
+#post-title {
+    width: 100%;
+}
+
+#post-content {
+    width: 100%;
+}
+
+#username, #password {
+    padding: 0 5px;
+}
+.container {
+    padding: 0;
+}
+
+.login-page, .signup-page {
+    margin: 20px;
+}
+
+
+.post-title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dashboard {
     padding: 20px;
 }

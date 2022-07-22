@@ -1,0 +1,35 @@
+<div class="dashboard">
+    <section>
+    <h2>Create New Post</h2>
+
+    <form class="new-post-form">
+        <div>
+        <label for="post-title">Title</label><br />
+        <input type="text" id="post-title" name="post-title" />
+        </div>
+        <br />
+        <div>
+        <label for="post-content">Content</label><br />
+        <textarea id="post-content" name="post-content"></textarea>
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+    </section>
+    <hr>
+{{!-- </div> --}}
+{{#if posts.length}}
+{{!-- <div> --}}
+<section>
+  <h2>Your Posts</h2>
+  <ol>
+    {{#each posts}}
+    <li>
+      {{title}}
+      <a href="/dashboard/edit/{{id}}" class="edit-link">Edit post</a>
+    </li>
+    {{/each}}
+  </ol>
+</section>
+{{/if}}
+</div>
