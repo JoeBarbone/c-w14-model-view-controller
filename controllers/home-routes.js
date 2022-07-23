@@ -6,6 +6,7 @@ const { Post, User } = require("../models");
 
 
 //get all posts for homepage
+// home-routes.js only provides info to render pages
 router.get("/", (req, res) => {
     console.log(req.session);
   console.log("======================");

@@ -13,22 +13,22 @@
         <textarea id="post-content" name="post-content"></textarea>
         </div>
         <br />
-        <button type="submit" class="btn btn-primary">Create</button>
+        <button id="{{user_id}}" type="submit" class="btn btn-primary">Create</button>
     </form>
     </section>
     <hr>
-  <script src="/javascript/new-post.js"></script>
+  
 
   {{!-- </div> --}}
   {{#if posts.length}}
   {{!-- <div> --}}
-  <section>
+  <section class="post-section">
     <h2>Your Posts</h2>
     <ol>
       {{#each posts}}
       <li>
         {{title}}
-        <a href="/dashboard/edit/{{id}}" class="edit-link">Edit post</a> | <a href="/posts/delete/{{id}}" class="delete-link">Delete post</a>
+        <a href="/edit-post/{{id}}"><button class="btn btn-primary">Edit post</button></a> <button id={{id}} class="btn btn-danger delete-post-btn">Delete post</button>
       </li>
       {{/each}}
     </ol>
@@ -36,3 +36,7 @@
   {{/if}}
 </div>
 
+
+
+<script src="/javascript/new-post.js"></script>
+<script src="/javascript/delete-post.js"></script>

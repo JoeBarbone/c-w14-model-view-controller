@@ -2,28 +2,27 @@ async function createPostFormHandler(event) {
     event.preventDefault();
   
     const title = document.querySelector("#post-title").value.trim();
-    const content = document.querySelector("#post-content").value.trim();
-    const user_id = 3;
+    const post_content = document.querySelector("#post-content").value.trim();
+    const user_id = event.target.id
     // const createdAt = new Date();
     // const updatedAt = new Date();
 
-    // I have tried every fucking thing I could think of.
-    // created_at, createdAt, res.session.user_id for the user_id NOTHING FUCKING WORKS
+    
   
 
-    if (title && content) {
+    if (title && post_content) {
       const response = await fetch("/api/posts", {
         method: "post",
         body: JSON.stringify({
             title,
-            content,
+            post_content,
             user_id
         }),
         headers: { "Content-Type": "application/json" }
       });
   
       if (response.ok) {
-        document.location.replace("/dashboard/");
+        window.location.reload();
       } else {
         alert(response.statusText);
       }

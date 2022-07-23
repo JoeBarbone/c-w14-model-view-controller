@@ -55,7 +55,7 @@ router.post('/', (req, res) => {
   Post.create({
     title: req.body.title,
     post_content: req.body.post_content,
-    user_id: req.body.user_id
+    user_id: req.session.user_id
   })
     .then(dbPostData => {
       req.session.save(() => {
@@ -128,28 +128,27 @@ router.post('/', (req, res) => {
 
 
 
-router.put("/:id", (req, res) => {
-  // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
+// router.put("/:id", (req, res) => {
 
-  // pass in req.body instead to only update what's passed through
-  Post.update(req.body, {
-    individualHooks: true,
-    where: {
-      id: req.params.id
-    }
-  })
-    .then(dbPostData => {
-      if (!dbPostData) {
-        res.status(404).json({ message: 'No user found with this id' });
-        return;
-      }
-      res.json(dbPostData);
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
+//   // pass in req.body instead to only update what's passed through
+//   Post.update(req.body, {
+//     individualHooks: true,
+//     where: {
+//       id: req.params.id
+//     }
+//   })
+//     .then(dbPostData => {
+//       if (!dbPostData) {
+//         res.status(404).json({ message: 'No user found with this id' });
+//         return;
+//       }
+//       res.json(dbPostData);
+//     })
+//     .catch(err => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+// });
 
 
 // add withAuth when working
