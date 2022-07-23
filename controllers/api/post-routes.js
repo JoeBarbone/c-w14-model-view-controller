@@ -51,7 +51,7 @@ router.get('/:id', (req, res) => {
 
 
 router.post('/', (req, res) => {
-  // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
+  
   Post.create({
     title: req.body.title,
     post_content: req.body.post_content,
@@ -70,6 +70,7 @@ router.post('/', (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
+    
 });
 
 
@@ -150,6 +151,8 @@ router.put("/:id", (req, res) => {
     });
 });
 
+
+// add withAuth when working
 router.delete('/:id', (req, res) => {
   Post.destroy({
     where: {

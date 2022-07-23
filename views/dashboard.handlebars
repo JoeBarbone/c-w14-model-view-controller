@@ -2,7 +2,7 @@
     <section>
     <h2>Create New Post</h2>
 
-    <form class="new-post-form">
+    <form id="new-post-form" class="new-post-form">
         <div>
         <label for="post-title">Title</label><br />
         <input type="text" id="post-title" name="post-title" />
@@ -17,19 +17,22 @@
     </form>
     </section>
     <hr>
-{{!-- </div> --}}
-{{#if posts.length}}
-{{!-- <div> --}}
-<section>
-  <h2>Your Posts</h2>
-  <ol>
-    {{#each posts}}
-    <li>
-      {{title}}
-      <a href="/dashboard/edit/{{id}}" class="edit-link">Edit post</a>
-    </li>
-    {{/each}}
-  </ol>
-</section>
-{{/if}}
+  <script src="/javascript/new-post.js"></script>
+
+  {{!-- </div> --}}
+  {{#if posts.length}}
+  {{!-- <div> --}}
+  <section>
+    <h2>Your Posts</h2>
+    <ol>
+      {{#each posts}}
+      <li>
+        {{title}}
+        <a href="/dashboard/edit/{{id}}" class="edit-link">Edit post</a> | <a href="/posts/delete/{{id}}" class="delete-link">Delete post</a>
+      </li>
+      {{/each}}
+    </ol>
+  </section>
+  {{/if}}
 </div>
+

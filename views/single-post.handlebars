@@ -1,12 +1,25 @@
-<article class="post">
-  <div class="title">
-    <a href="{{post.title}}" target="_blank">{{post.title}}</a>
-    <span>({{post.post_content}})</span>
-  </div>
-  {{!-- <div class="meta">
-    {{post.vote_count}} point(s) by {{post.user.username}} on
-    {{post.created_at}}
-    |
-    <a href="/post/{{post.id}}">{{post.comments.length}} comment(s)</a>
-  </div> --}}
-</article>
+<div class="post-box">
+    <div class="post-title">
+        <div class="title-box">
+            {{ post.title }}
+        </div> 
+        
+        <div class="post-by">
+            Posted by {{ user.username }} on {{ post.created_at }}
+        </div>
+    </div>
+
+    <div class="post-body">
+        {{ post.post_content }}
+    </div>
+
+    <div class="single-post-comments">
+        <h1>Comments</h1>
+        Due to the sensitivity of this blog and the current state of the union, we have been advised by the National Security Division of the Department of Justice
+        to disable all comments until further notice. <br /><br />
+        Our top priority is the safety and well being of our contributors. The Tech Blog apologizes for any inconvenience
+        this may have caused.
+        <br /><br />
+        The Tech Blog
+    </div>
+</div>

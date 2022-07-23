@@ -72,3 +72,9 @@ li {
 .dashboard {
     padding: 20px;
 }
+
+.single-post-comments {
+    font-weight: bold;
+    padding: 20px;
+    color: red;
+}
